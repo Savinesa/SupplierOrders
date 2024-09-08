@@ -1,0 +1,9 @@
+# Ignore Visual Studio temporary files, build results, and
+# .NET Core directories
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.csproj.user
+*.csproj.useros.json
