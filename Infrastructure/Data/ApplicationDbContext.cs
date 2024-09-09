@@ -20,6 +20,35 @@ namespace SupplierOrdersModule.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //add Indexes
+            modelBuilder.Entity<Supplier>()
+                .HasIndex(s => s.Id)
+                .HasDatabaseName("Index_SupplierId");
+
+            modelBuilder.Entity<Product>()
+                .HasIndex(p => p.Id)
+                .HasDatabaseName("Index_ProductId");
+
+            modelBuilder.Entity<PurchaseOrder>()
+                .HasIndex(po => po.Id)
+                .HasDatabaseName("Index_PurchaseOrderId");
+
+            modelBuilder.Entity<PurchaseOrderItem>()
+                .HasIndex(poi => poi.Id)
+                .HasDatabaseName("Index_PurchaseOrderItemId");
+
+            modelBuilder.Entity<PurchaseReceipt>()
+                .HasIndex(pr => pr.Id)
+                .HasDatabaseName("Index_PurchaseReceiptId");
+
+            modelBuilder.Entity<ItemLedgerEntry>()
+                .HasIndex(ile => ile.Id)
+                .HasDatabaseName("Index_ItemLedgerEntryId");
+
+            modelBuilder.Entity<Stock>()
+                .HasIndex(s => s.Id)
+                .HasDatabaseName("Index_StockId");
+
             // Configure decimal properties for precision and scale
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
